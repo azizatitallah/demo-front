@@ -30,4 +30,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div>
+  <button mat-raised-button (click)="productID = 1;">Product 1</button>
+  <button mat-raised-button (click)="productID = 2;">Product 2</button>
+</div>
 
