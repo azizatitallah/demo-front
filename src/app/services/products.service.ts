@@ -17,6 +17,6 @@ export class ProductsService {
   }
 
   getProducts() {
-    return this.http.get(`${this.ipAddress}/products`);
+    return this.http.get(`${this.ipAddress}/product/all`);
   }
 }
