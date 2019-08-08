@@ -1,5 +1,9 @@
+import { intervention } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable } from 'rxjs';
+import {  throwError  } from 'rxjs';
+import { catchError, retry} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +16,43 @@ export class ProductsService {
     private http: HttpClient,
   ) { }
 
-  getProductByID(id) {
-    return this.http.get(`${this.ipAddress}/product/${id}`);
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   }
 
-  getProducts() {
-    return this.http.get(`${this.ipAddress}/product/all`);
+  getInterventionByID() {
+    return this.http.get(`${this.ipAddress}/Intervention/all`);
   }
+
+  getIntervention() {
+    return this.http.get(`${this.ipAddress}/Intervention/all`);
+  }
+
+  postIntervention (intervention): Observable<intervention> {
+    return this.http.post<intervention>('${this.ipAddress}/Intervention/create', JSON.stringify(intervention), this.httpOptions)
+      .pipe( 
+        retry(1),
+         catchError(this.errorHandl)
+      );
+  }
+  errorHandl(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+ }
 }
+
+
+
+
+ 
+
