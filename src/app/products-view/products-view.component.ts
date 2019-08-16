@@ -41,22 +41,22 @@ export class ProductsViewComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private productService: ProductsService
-    ) { }
+    ) {
+      this.profileForm = this.fb.group({
+        ID : ['', Validators.required],
+        mecanicien : [''],
+        Date : [''],
+        NumMachine : [''],
+        Reclamation : [''],
+        Debut : [''],
+        Fin : [''],
+        Categorie : [''],
+        chaine: [''],
+        TypeMachine: ['']
+      });
+    }
 
   ngOnInit() {
-    this.profileForm = this.fb.group({
-      ID : ['', Validators.required],
-      mecanicien : [''],
-      Date : [''],
-      NumMachine : [''],
-      Reclamation : [''],
-      Debut : [''],
-      Fin : [''],
-      Categorie : [''],
-      chaine: [''],
-      TypeMachine: ['']
-    });
-
     this.getIntervention();
   }
 
