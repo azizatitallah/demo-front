@@ -9,15 +9,24 @@ import { AppComponent } from './app.component';
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, JsonpModule  } from '@angular/http';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: 'issues-list',
+    component: AppComponent
+  },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductsViewComponent,
    
   ],
-  imports: [JsonpModule ,
-    
+  imports: [
+    RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
