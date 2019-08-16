@@ -1,5 +1,5 @@
 import { ProductsService } from './../services/products.service';
-import { Component, OnInit, AfterContentChecked  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -23,7 +23,8 @@ export interface Intervention {
   templateUrl: './products-view.component.html',
   styleUrls: ['./products-view.component.css']
 })
-export class ProductsViewComponent implements OnInit, AfterContentChecked {
+
+export class ProductsViewComponent implements OnInit {
 
   payLoad = '';
   profileForm: FormGroup;
@@ -43,14 +44,6 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
     ) { }
 
   ngOnInit() {
-    // this.postIntervention();
-  }
-
-  ngAfterContentChecked() {
-    this.getIntervention();
-  }
-
-  postIntervention() {
     this.profileForm = this.fb.group({
       ID : ['', Validators.required],
       mecanicien : [''],
@@ -63,6 +56,8 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
       chaine: [''],
       TypeMachine: ['']
     });
+
+    this.getIntervention();
   }
 
   submitForm() {
