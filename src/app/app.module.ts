@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
 
 const appRoutes: Routes = [
   {
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

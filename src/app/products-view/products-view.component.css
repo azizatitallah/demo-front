@@ -2,3 +2,8 @@ table {
     min-width: 80vw;
     justify-self: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}

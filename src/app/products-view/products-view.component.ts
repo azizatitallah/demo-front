@@ -1,5 +1,5 @@
 import { ProductsService } from './../services/products.service';
-import { Component, OnInit, AfterContentChecked , NgZone } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -23,7 +23,8 @@ export interface Intervention {
   templateUrl: './products-view.component.html',
   styleUrls: ['./products-view.component.css']
 })
-export class ProductsViewComponent implements OnInit, AfterContentChecked {
+
+export class ProductsViewComponent implements OnInit {
 
   payLoad = '';
   profileForm: FormGroup;
@@ -38,20 +39,11 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
 
   constructor(
     public fb: FormBuilder,
-    private ngZone: NgZone,
     private router: Router,
     private productService: ProductsService
     ) { }
 
   ngOnInit() {
-    this.postIntervention();
-  }
-
-  ngAfterContentChecked() {
-    this.getIntervention();
-  }
-
-  postIntervention() {
     this.profileForm = this.fb.group({
       ID : ['', Validators.required],
       mecanicien : [''],
@@ -64,12 +56,14 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
       chaine: [''],
       TypeMachine: ['']
     });
+
+    this.getIntervention();
   }
 
   submitForm() {
     this.productService.postIntervention(this.profileForm.value).subscribe( res => {
       console.log('intervention ajoutée');
-      this.ngZone.run(() => this.router.navigateByUrl('/issues-list'));
+      this.getIntervention();
     });
   }
 
