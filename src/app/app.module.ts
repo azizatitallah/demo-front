@@ -1,5 +1,5 @@
 import { ProductsService } from './services/products.service';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import {HttpHeaders } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
@@ -9,19 +9,19 @@ import { AppComponent } from './app.component';
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
+import { HttpModule, JsonpModule  } from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsViewComponent
+    ProductsViewComponent,
+   
   ],
-  imports: [
+  imports: [JsonpModule ,
+    
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    HttpClientModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,

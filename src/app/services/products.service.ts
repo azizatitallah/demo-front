@@ -1,13 +1,15 @@
-import { intervention } from './../products-view/products-view.component';
+import { intervention, ProductsViewComponent } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable } from 'rxjs';
 import {  throwError  } from 'rxjs';
 import { catchError, retry} from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductsService {
 
   ipAddress = 'http://127.0.0.1:3000';
