@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
