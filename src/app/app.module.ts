@@ -10,6 +10,14 @@ import { ProductsViewComponent } from './products-view/products-view.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  {
+    path: 'issues-list',
+    component: AppComponent
+  },
+];
 
 @NgModule({
   declarations: [
@@ -17,6 +25,7 @@ import { HttpModule } from '@angular/http';
     ProductsViewComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
