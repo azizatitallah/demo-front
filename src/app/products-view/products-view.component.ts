@@ -1,5 +1,5 @@
 import { ProductsService } from './../services/products.service';
-import { Component, OnInit, AfterContentChecked , NgZone } from '@angular/core';
+import { Component, OnInit, AfterContentChecked  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
@@ -38,13 +38,12 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
 
   constructor(
     public fb: FormBuilder,
-    private ngZone: NgZone,
     private router: Router,
     private productService: ProductsService
     ) { }
 
   ngOnInit() {
-    this.postIntervention();
+    // this.postIntervention();
   }
 
   ngAfterContentChecked() {
@@ -69,7 +68,7 @@ export class ProductsViewComponent implements OnInit, AfterContentChecked {
   submitForm() {
     this.productService.postIntervention(this.profileForm.value).subscribe( res => {
       console.log('intervention ajoutée');
-      this.ngZone.run(() => this.router.navigateByUrl('/issues-list'));
+      this.getIntervention();
     });
   }
 
