@@ -57,7 +57,7 @@
 <div class="container">
   <h1> Ajouter une intervention </h1>
   <hr>
-  <form [formGroup]="profileForm" (ngsubmit)="submitForm" novalidate>
+  <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
 
     <mat-form-field>
       <mat-label>ID</mat-label>

@@ -23,20 +23,21 @@ export class ProductsService {
   ) { }
 
   getInterventionByID() {
-    return this.http.get(`${this.ipAddress}/Intervention/all`);
+    return this.http.get(`${this.ipAddress}/intervention/all`);
   }
 
   getIntervention() {
-    return this.http.get(`${this.ipAddress}/Intervention/all`);
+    return this.http.get(`${this.ipAddress}/intervention/all`);
   }
 
   postIntervention (intervention): Observable<Intervention> {
-    return this.http.post<Intervention>(`${this.ipAddress}/Intervention/create`, JSON.stringify(intervention), this.httpOptions)
+    return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
       .pipe(
         retry(1),
          catchError(this.errorHandler)
       );
   }
+
   errorHandler(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
@@ -48,5 +49,6 @@ export class ProductsService {
     }
     console.log(errorMessage);
     return throwError(errorMessage);
- }
+  }
+
 }

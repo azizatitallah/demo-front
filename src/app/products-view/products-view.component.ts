@@ -64,21 +64,7 @@ export class ProductsViewComponent implements OnInit {
     this.productService.postIntervention(this.profileForm.value).subscribe( res => {
       console.log('intervention ajoutée');
       this.getIntervention();
-    });
-  }
-
-  updateProfile() {
-    this.profileForm.setValue({
-      ID : '',
-      mecanicien : '',
-      Date : '',
-      NumMachine : '',
-      Reclamation : '',
-      Debut : '',
-      Fin : '',
-      Categorie : '',
-      chaine: '',
-      TypeMachine: '',
+      this.profileForm.reset();
     });
   }
 
