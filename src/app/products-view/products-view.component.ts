@@ -3,7 +3,6 @@ import { Component, OnInit  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 
 export interface Intervention {
   ID: number;
@@ -39,20 +38,19 @@ export class ProductsViewComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    private router: Router,
     private productService: ProductsService
     ) {
       this.profileForm = this.fb.group({
         ID : ['', Validators.required],
-        mecanicien : [''],
-        Date : [''],
-        NumMachine : [''],
-        Reclamation : [''],
-        Debut : [''],
-        Fin : [''],
-        Categorie : [''],
-        chaine: [''],
-        TypeMachine: ['']
+        mecanicien : ['', Validators.required],
+        Date : ['', Validators.required],
+        NumMachine : ['', Validators.required],
+        Reclamation : ['', Validators.required],
+        Debut : ['', Validators.required],
+        Fin : ['', Validators.required],
+        Categorie : ['', Validators.required],
+        chaine: ['', Validators.required],
+        TypeMachine: ['', Validators.required]
       });
     }
 
