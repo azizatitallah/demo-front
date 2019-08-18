@@ -1,5 +1,5 @@
 import { ProductsService } from './services/products.service';
-import {HttpHeaders } from '@angular/common/http';
+import {HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
@@ -37,7 +37,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,    
+    HttpClientModule,
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

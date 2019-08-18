@@ -57,7 +57,7 @@
 <div class="container">
   <h1> Ajouter une intervention </h1>
   <hr>
-  <form [formGroup]="profileForm" (ngsubmit)="submitForm" novalidate>
+  <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
 
     <mat-form-field>
       <mat-label>ID</mat-label>
@@ -65,33 +65,33 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Name</mat-label>
+      <mat-label>Mécanicien</mat-label>
       <input matInput formControlName="mecanicien">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Stock</mat-label>
-      <input matInput formControlName="Date">
+      <mat-label>Date</mat-label>
+      <input matInput type="date" formControlName="Date">
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Comment</mat-label>
+      <mat-label>Num de machine</mat-label>
       <input matInput formControlName="NumMachine">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Reclamation</mat-label>
-      <input matInput formControlName="Reclamation">
+      <input matInput type="time" formControlName="Reclamation">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Début</mat-label>
-      <input matInput formControlName="Debut">
+      <input matInput type="time" formControlName="Debut">
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Fin</mat-label>
-      <input matInput formControlName="Fin">
+      <input matInput type="time"  formControlName="Fin">
     </mat-form-field>
 
     <mat-form-field>
@@ -109,7 +109,7 @@
       <input matInput formControlName="TypeMachine">
     </mat-form-field>
 
-    <button mat-stroked-button color="accent" type="submit">Save Product</button>
+    <button class="btn btn-success" mat-stroked-button color="accent"  type ="submit" >Save Product</button>
   </form>
 </div>
 

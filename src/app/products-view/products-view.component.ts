@@ -61,8 +61,8 @@ export class ProductsViewComponent implements OnInit {
   }
 
   submitForm() {
-    this.productService.postIntervention(this.profileForm.value).subscribe( res => {
-      console.log('intervention ajoutée');
+    this.productService.postIntervention(this.profileForm.value).subscribe( (response) => {
+      console.log(response);
       this.getIntervention();
     });
   }
