@@ -15,6 +15,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MenuComponent } from './menu/menu.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     ProductsViewComponent,
     MenuComponent,
    
+
   ],
   imports: [MatSidenavModule, MatChipsModule, 
     MatSelectModule,
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    BrowserAnimationsModule,    
+    MatStepperModule,
+    BrowserAnimationsModule,
     HttpClientModule,
   ],
   providers: [ProductsService],
