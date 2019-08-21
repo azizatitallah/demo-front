@@ -55,23 +55,15 @@
 </table>
 
 <div class="container">
-  <h1> Ajouter </h1>
+  <h1> Ajouter une intervention </h1>
   <hr>
   <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
 
-    <mat-form-field>
-      <mat-label>ID</mat-label>
-      <input matInput formControlname="ID">
-    </mat-form-field>
+    
 
     <mat-form-field>
       <mat-label>Mécanicien</mat-label>
       <input matInput formControlName="mecanicien">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Date</mat-label>
-      <input matInput type="date" formControlName="Date">
     </mat-form-field>
 
     <mat-form-field>
@@ -95,10 +87,13 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Categorie</mat-label>
-      <input matInput formControlName="Categorie">
+      <mat-label>Categorie</mat-label> 
+        <mat-select formControlName="Categorie" class="form-control">
+          <mat-option *ngFor="let categorie of categories" [value]="categorie.Type_intervention"  >{{categorie.Type_intervention}}</mat-option>
+        </mat-select>
     </mat-form-field>
     
+
     <mat-form-field>
       <mat-label>Chaine</mat-label>
       <input matInput formControlName="chaine">

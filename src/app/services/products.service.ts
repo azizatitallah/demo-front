@@ -53,4 +53,14 @@ export class ProductsService {
     return throwError(errorMessage);
   }
 
+  getTypeIntervention() {
+    return this.http.get(`${this.ipAddress}/categorie/type`);
+  }
+  
+
+  getNomOp() {
+    return this.http.get(`${this.ipAddress}/NomPrenom/nom`);
+  }
+
+
 }
