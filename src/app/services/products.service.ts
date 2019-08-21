@@ -34,7 +34,7 @@ export class ProductsService {
     return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
       .pipe(
         retry(1),
-         catchError(this.errorHandler)
+        catchError(this.errorHandler)
       );
   }
 
