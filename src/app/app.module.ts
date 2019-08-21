@@ -1,5 +1,5 @@
 import { ProductsService } from './services/products.service';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import {HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
@@ -24,7 +24,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsViewComponent
+    ProductsViewComponent,
+   
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -32,12 +33,12 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    HttpClientModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,    
+    HttpClientModule,
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
