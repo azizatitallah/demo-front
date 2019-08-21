@@ -1,117 +1,128 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <ng-container matColumnDef="ID">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let row"> {{row.ID}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="mecanicien">
-    <th mat-header-cell *matHeaderCellDef> mecanicien </th>
-    <td mat-cell *matCellDef="let row"> {{row.mecanicien}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="NumMachine">
-    <th mat-header-cell *matHeaderCellDef> NumMachine </th>
-    <td mat-cell *matCellDef="let row"> {{row.NumMachine}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Reclamation">
-    <th mat-header-cell *matHeaderCellDef> Reclamation </th>
-    <td mat-cell *matCellDef="let row"> {{row.Reclamation}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Debut">
-    <th mat-header-cell *matHeaderCellDef> Debut </th>
-    <td mat-cell *matCellDef="let row"> {{row.Debut}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Fin">
-    <th mat-header-cell *matHeaderCellDef> Fin </th>
-    <td mat-cell *matCellDef="let row"> {{row.Fin}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="Categorie">
-    <th mat-header-cell *matHeaderCellDef> Categorie </th>
-    <td mat-cell *matCellDef="let row"> {{row.Categorie}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="chaine">
-    <th mat-header-cell *matHeaderCellDef> chaine </th>
-    <td mat-cell *matCellDef="let row"> {{row.chaine}} </td>
-  </ng-container>
-  <ng-container matColumnDef="TypeMachine">
-    <th mat-header-cell *matHeaderCellDef> TypeMachine </th>
-    <td mat-cell *matCellDef="let row"> {{row.TypeMachine}} </td>
-  </ng-container>
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row ; columns: displayedColumns;"></tr>
-</table>
-
-<div class="container">
-  <h1> Ajouter </h1>
-  <hr>
-  <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
-
-    <mat-form-field>
-      <mat-label>ID</mat-label>
-      <input matInput formControlname="ID">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Mécanicien</mat-label>
-      <input matInput formControlName="mecanicien">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Date</mat-label>
-      <input matInput type="date" formControlName="Date">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Num de machine</mat-label>
-      <input matInput formControlName="NumMachine">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Reclamation</mat-label>
-      <input matInput type="time" formControlName="Reclamation">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Début</mat-label>
-      <input matInput type="time" formControlName="Debut">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Fin</mat-label>
-      <input matInput type="time"  formControlName="Fin">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Categorie</mat-label>
-      <input matInput formControlName="Categorie">
-    </mat-form-field>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template matStepLabel>Liste des Interventions</ng-template>
+    <div class="stepContent">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.ID}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="mecanicien">
+          <th mat-header-cell *matHeaderCellDef> mecanicien </th>
+          <td mat-cell *matCellDef="let row"> {{row.mecanicien}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="NumMachine">
+          <th mat-header-cell *matHeaderCellDef> NumMachine </th>
+          <td mat-cell *matCellDef="let row"> {{row.NumMachine}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Reclamation">
+          <th mat-header-cell *matHeaderCellDef> Reclamation </th>
+          <td mat-cell *matCellDef="let row"> {{row.Reclamation}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Debut">
+          <th mat-header-cell *matHeaderCellDef> Debut </th>
+          <td mat-cell *matCellDef="let row"> {{row.Debut}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Fin">
+          <th mat-header-cell *matHeaderCellDef> Fin </th>
+          <td mat-cell *matCellDef="let row"> {{row.Fin}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Categorie">
+          <th mat-header-cell *matHeaderCellDef> Categorie </th>
+          <td mat-cell *matCellDef="let row"> {{row.Categorie}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="chaine">
+          <th mat-header-cell *matHeaderCellDef> chaine </th>
+          <td mat-cell *matCellDef="let row"> {{row.chaine}} </td>
+        </ng-container>
+        <ng-container matColumnDef="TypeMachine">
+          <th mat-header-cell *matHeaderCellDef> TypeMachine </th>
+          <td mat-cell *matCellDef="let row"> {{row.TypeMachine}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row ; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <ng-template matStepLabel>Ajouter une intervention</ng-template>
+    <div class="container addIntervention stepContent">
+      <h1> Ajouter </h1>
+      <hr>
+      <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
     
-    <mat-form-field>
-      <mat-label>Chaine</mat-label>
-      <input matInput formControlName="chaine">
-    </mat-form-field>
+        <mat-form-field>
+          <mat-label>ID</mat-label>
+          <input matInput formControlname="ID">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Mécanicien</mat-label>
+          <input matInput formControlName="mecanicien">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput type="date" formControlName="Date">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Num de machine</mat-label>
+          <input matInput formControlName="NumMachine">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Reclamation</mat-label>
+          <input matInput type="time" formControlName="Reclamation">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Début</mat-label>
+          <input matInput type="time" formControlName="Debut">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Fin</mat-label>
+          <input matInput type="time"  formControlName="Fin">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Categorie</mat-label>
+          <input matInput formControlName="Categorie">
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Chaine</mat-label>
+          <input matInput formControlName="chaine">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Type de Machine</mat-label>
+          <input matInput formControlName="TypeMachine">
+        </mat-form-field>
+    
+        <button class="btn btn-success" mat-stroked-button color="accent"  type ="submit" >Save Product</button>
+      </form>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 
-    <mat-form-field>
-      <mat-label>Type de Machine</mat-label>
-      <input matInput formControlName="TypeMachine">
-    </mat-form-field>
 
-    <button class="btn btn-success" mat-stroked-button color="accent"  type ="submit" >Save Product</button>
-  </form>
-</div>
 
 
 

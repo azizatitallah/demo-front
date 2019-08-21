@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProductsViewComponent,
-   
+
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatInputModule,
-    BrowserAnimationsModule,    
+    MatStepperModule,
+    BrowserAnimationsModule,
     HttpClientModule,
   ],
   providers: [ProductsService],
