@@ -16,6 +16,7 @@ export interface Intervention {
   Categorie: string;
   chaine: string;
   TypeMachine: string;
+  Etat_Intervention: string;
 }
 
 @Component({
@@ -26,7 +27,7 @@ export interface Intervention {
 
 export class ProductsViewComponent implements OnInit {
 
-  
+  Date = Date.now();
   categories: {};
 
 
@@ -36,11 +37,12 @@ export class ProductsViewComponent implements OnInit {
   displayedColumns: string[] = [
     'ID', 'mecanicien', 'Date',
    'NumMachine', 'Reclamation', 'Debut',
-    'Fin', 'Categorie', 'chaine', 'TypeMachine'
+    'Fin', 'Categorie', 'chaine', 'TypeMachine', 'Etat_Intervention'
   ];
 
   dataSource = new Array<Intervention>();
-
+  msg: number;
+  
   constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
@@ -82,6 +84,10 @@ export class ProductsViewComponent implements OnInit {
       console.log(response);
       this.dataSource = response as Array<Intervention>;
     });
+  }
+  
+  clickEvent(){
+    this.msg=this.Date;
   }
 
 }
