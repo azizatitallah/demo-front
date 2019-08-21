@@ -3,6 +3,7 @@ import { Component, OnInit  } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface Intervention {
   ID: number;
@@ -15,6 +16,7 @@ export interface Intervention {
   Categorie: string;
   chaine: string;
   TypeMachine: string;
+  Etat_Intervention: string;
 }
 
 @Component({
@@ -25,25 +27,29 @@ export interface Intervention {
 
 export class ProductsViewComponent implements OnInit {
 
+  Date = Date.now();
+  categories: {};
+
+
   payLoad = '';
   profileForm: FormGroup;
 
   displayedColumns: string[] = [
     'ID', 'mecanicien', 'Date',
    'NumMachine', 'Reclamation', 'Debut',
-    'Fin', 'Categorie', 'chaine', 'TypeMachine'
+    'Fin', 'Categorie', 'chaine', 'TypeMachine', 'Etat_Intervention'
   ];
 
   dataSource = new Array<Intervention>();
-
+  msg: number;
+  
   constructor(
     public fb: FormBuilder,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private router: Router
     ) {
       this.profileForm = this.fb.group({
-        ID : ['', Validators.required],
         mecanicien : ['', Validators.required],
-        Date : ['', Validators.required],
         NumMachine : ['', Validators.required],
         Reclamation : ['', Validators.required],
         Debut : ['', Validators.required],
@@ -52,10 +58,16 @@ export class ProductsViewComponent implements OnInit {
         chaine: ['', Validators.required],
         TypeMachine: ['', Validators.required]
       });
+
+      
     }
 
   ngOnInit() {
     this.getIntervention();
+    
+    this.productService.getTypeIntervention().subscribe(
+      data => this.categories = data,
+         );
   }
 
   submitForm() {
@@ -73,4 +85,9 @@ export class ProductsViewComponent implements OnInit {
       this.dataSource = response as Array<Intervention>;
     });
   }
+  
+  clickEvent(){
+    this.msg=this.Date;
+  }
+
 }

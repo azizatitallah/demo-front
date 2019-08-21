@@ -1,3 +1,4 @@
+
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <ng-template matStepLabel>Liste des Interventions</ng-template>
@@ -54,6 +55,12 @@
           <th mat-header-cell *matHeaderCellDef> TypeMachine </th>
           <td mat-cell *matCellDef="let row"> {{row.TypeMachine}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="Etat_Intervention">
+          <th mat-header-cell *matHeaderCellDef> Etat_Intervention </th>
+          <td mat-cell *matCellDef="let row"> {{row.Etat_Intervention}} </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row ; columns: displayedColumns;"></tr>
       </table>
@@ -65,21 +72,12 @@
       <h1> Ajouter </h1>
       <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
     
-        <mat-form-field>
-          <mat-label>ID</mat-label>
-          <input matInput formControlname="ID">
-        </mat-form-field>
-    
+          
         <mat-form-field>
           <mat-label>Mécanicien</mat-label>
           <input matInput formControlName="mecanicien">
         </mat-form-field>
-    
-        <mat-form-field>
-          <mat-label>Date</mat-label>
-          <input matInput type="date" formControlName="Date">
-        </mat-form-field>
-    
+        
         <mat-form-field>
           <mat-label>Num de machine</mat-label>
           <input matInput formControlName="NumMachine">
@@ -92,18 +90,27 @@
     
         <mat-form-field>
           <mat-label>Début</mat-label>
-          <input matInput type="time" formControlName="Debut">
+          <button  (click)="clickEvent()" >
+            Click Me</button>
+            <input matInput type="text" formControlName="Debut" [(ngModel)]="msg">
+            <h2>{{msg  | date:'h:mm a '}}</h2>
         </mat-form-field>
+
+        
+        
     
         <mat-form-field>
           <mat-label>Fin</mat-label>
           <input matInput type="time"  formControlName="Fin">
         </mat-form-field>
     
-        <mat-form-field>
-          <mat-label>Categorie</mat-label>
-          <input matInput formControlName="Categorie">
-        </mat-form-field>
+        
+    <mat-form-field>
+      <mat-label>Categorie</mat-label> 
+        <mat-select formControlName="Categorie" class="form-control">
+          <mat-option *ngFor="let categorie of categories" [value]="categorie.Type_intervention"  >{{categorie.Type_intervention}}</mat-option>
+        </mat-select>
+    </mat-form-field>
         
         <mat-form-field>
           <mat-label>Chaine</mat-label>
@@ -120,6 +127,11 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
+
+
+
+
+
 
 
 

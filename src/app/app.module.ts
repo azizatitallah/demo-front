@@ -13,8 +13,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { MenuComponent } from './menu/menu.component';
 import { MatStepperModule } from '@angular/material/stepper';
 
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSidenavModule} from '@angular/material/sidenav';
 const appRoutes: Routes = [
   {
     path: 'issues-list',
@@ -26,9 +30,12 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProductsViewComponent,
+    MenuComponent,
+   
 
   ],
-  imports: [
+  imports: [MatSidenavModule, MatChipsModule, 
+    MatSelectModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
