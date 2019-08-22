@@ -42,7 +42,7 @@ export class ProductsViewComponent implements OnInit {
 
   dataSource = new Array<Intervention>();
   msg: number;
-  
+
   constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
@@ -59,12 +59,10 @@ export class ProductsViewComponent implements OnInit {
         TypeMachine: ['', Validators.required]
       });
 
-      
     }
 
   ngOnInit() {
     this.getIntervention();
-    
     this.productService.getTypeIntervention().subscribe(
       data => this.categories = data,
          );
@@ -85,9 +83,9 @@ export class ProductsViewComponent implements OnInit {
       this.dataSource = response as Array<Intervention>;
     });
   }
-  
-  clickEvent(){
-    this.msg=this.Date;
+
+  clickEvent() {
+    this.msg = this.Date;
   }
 
 }
