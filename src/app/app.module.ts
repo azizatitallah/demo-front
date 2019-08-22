@@ -16,9 +16,10 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MenuComponent } from './menu/menu.component';
 import { MatStepperModule } from '@angular/material/stepper';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
 const appRoutes: Routes = [
   {
     path: 'issues-list',
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
    
 
   ],
-  imports: [MatSidenavModule, MatChipsModule, 
+  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule,
     MatSelectModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,

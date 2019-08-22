@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'My Products';
   hide = false;
+  
 
   hideElement() {
     this.hide = !this.hide;

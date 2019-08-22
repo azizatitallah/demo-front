@@ -1,116 +1,21 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-/* Style the links inside the sidenav */
-#mySidenav .sidebar {
-    position: absolute; /* Position them relative to the browser window */
-    left: -170px; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 200px; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-  }
-  
-  #mySidenav .sidebar:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
-  }
-  
-  /* The about link: 20px from the top with a green background */
-  #about {
-    top: 140px;
-    background-color: #4CAF50;
-  }
-  
-  #blog {
-    top: 200px;
-    background-color: #2196F3; /* Blue */
-  }
-  
-  #projects {
-    top: 260px;
-    background-color: #f44336; /* Red */
-  }
-  
-  #contact {
-    top: 320px;
-    background-color: #555 /* Light Black */
-  }
 
 
 
-
-
-
-
-
-
-  .sidebar {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 70px;
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
   left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 16px;
+  right: 0;
 }
+.sidenav {
 
-/* Style sidebar links */
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
+  background-color: #555;
 }
-
-/* Style links on mouse-over */
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-/* Style the main content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
-
-/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-body {font-family: Arial, Helvetica, sans-serif;}
-
-.navbar {
-width: 100%; 
-  background-color: rgb(67, 24, 224);
+.example-events {
+  
+  width: 300px;
+  height: 200px;
   overflow: auto;
-  }
-
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.navbar a:hover {
-  background-color: rgba(58, 32, 204, 0.959);
-}
-
-.active {
-  background-color: #4CAF50;
-}
-
-@media screen and (max-width: 500px) {
-  .navbar a {
-    float: none;
-    display: block;
-  }
+  border: 1px solid #555;
 }
