@@ -31,7 +31,6 @@ export class ProductsViewComponent implements OnInit {
   Date = Date.now();
   categories: {};
 
-
   payLoad = '';
   profileForm: FormGroup;
 
@@ -87,6 +86,7 @@ export class ProductsViewComponent implements OnInit {
 
   clickEvent() {
     this.msg = this.Date;
+    this.profileForm.controls.Debut.setValue(Date.now());
   }
 
 }

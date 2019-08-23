@@ -16,3 +16,11 @@ form {
 stepContent {
     margin-top: 1vh;
 }
+
+.row {
+    margin: 1vh 0vw;
+}
+
+.timeSpan {
+    margin-left: 1vw;
+}
