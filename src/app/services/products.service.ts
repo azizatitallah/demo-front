@@ -1,10 +1,10 @@
+import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +60,28 @@ export class ProductsService {
 
   getNomOp() {
     return this.http.get(`${this.ipAddress}/NomPrenom/nom`);
+  }
+
+  
+  getAffectation() {
+    return this.http.get(`${this.ipAddress}/operation/all`);
+  }
+
+  postAffectation (Affectation): Observable<Affectation> {
+    return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+  
+  getOperation() {
+    return this.http.get(`${this.ipAddress}/operation/alloperation`);
+  }
+  
+  getOperateur() {
+    return this.http.get(`${this.ipAddress}/operation/alloperateur`);
   }
 
 

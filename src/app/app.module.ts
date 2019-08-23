@@ -20,6 +20,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AffectationComponent } from './affectation/affectation.component';
 const appRoutes: Routes = [
   {
     path: 'issues-list',
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     AppComponent,
     ProductsViewComponent,
     MenuComponent,
+    AffectationComponent,
    
 
   ],

@@ -8,7 +8,6 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class MenuComponent {
 
-  today: number = Date.now();
   events: string[] = [];
   opened: boolean;
 
