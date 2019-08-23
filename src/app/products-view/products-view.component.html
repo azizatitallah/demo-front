@@ -1,8 +1,25 @@
+<!-- <div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>SIMOTEX</span>
+  
+      <span>  <mat-icon > date_range</mat-icon> {{today | date:'fullDate'}} </span>
+      <span>  <mat-icon > query_builder</mat-icon> {{today | date:'h:mm a '}} </span>
+      <span> <mat-icon > account_circle</mat-icon> {{ data }} </span>
+     <span> <mat-icon > settings_power</mat-icon></span>
+  
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
+  
+</div> -->
 
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <ng-template matStepLabel>Liste des Interventions</ng-template>
     <div class="stepContent">
+    
+    
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -92,7 +109,7 @@
           <mat-label>Début</mat-label>
           <button  (click)="clickEvent()" >
             Click Me</button>
-            <input matInput type="text" formControlName="Debut" [(ngModel)]="msg">
+            <input matInput type="text" formControlName="Debut" >
             <h2>{{msg  | date:'h:mm a '}}</h2>
         </mat-form-field>
 

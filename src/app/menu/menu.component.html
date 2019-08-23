@@ -1,25 +1,36 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href=
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+<mat-sidenav-container class="example-container"  >
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                (closed)="events.push('close!')"  >
+    <mat-toolbar color="primary">
+      SIMOTEX
+    </mat-toolbar>
 
-<div class="navbar"> 
-  <a href="#" > SIMOTEX </a> 
-  <a href="#"><i class="far fa-calendar-alt"></i> {{today | date:'fullDate'}}</a>  
-  <a href="#"><i class="far fa-clock"></i>  {{today | date:'h:mm a '}}</a> 
-  <a href="#"><i class="fa fa-fw fa-user"></i> {{ NomPrenom.Nom_op }}</a>  
-  <a href="#"><i class="fas fa-power-off"></i></a>
-</div>
+    <mat-list role="list">
+      <mat-list-item role="listitem" routerLink="/interventions">Interventions</mat-list-item>
+      <hr>
+      <mat-list-item role="listitem" routerLink="/affectations">Affectations</mat-list-item>
+      <hr>
+    </mat-list>
+  </mat-sidenav>
 
-<div id="mySidenav" class="sidenav">
-  <div class="sidebar">
-    <a href="#home"><i class="far fa-chart-bar"></i>Redement de la ligne</a>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>{{ (sidenav.opened)? 'close':'menu' }}</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span>SIMOTEX</span>
+
+      <span class="spacer"></span>
+
+      <span>  <mat-icon > date_range</mat-icon> {{ today | date:'fullDate'}} </span>
+      <span>  <mat-icon > query_builder</mat-icon> {{ today | date:'h:mm a '}} </span>
+      <span> <mat-icon > account_circle</mat-icon> {{ data }} </span>
+      <span> <mat-icon > settings_power</mat-icon></span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
     
-    <a href="#home">	<i class="fab fa-think-peaks"></i>Redement des opératrices</a>
-  </div>
-</div>
-
-<!-- Load an icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- The sidebar -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

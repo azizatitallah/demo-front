@@ -13,16 +13,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MenuComponent } from './menu/menu.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { AffectationComponent } from './affectation/affectation.component';
 
-import {MatChipsModule} from '@angular/material/chips';
-import {MatSidenavModule} from '@angular/material/sidenav';
 const appRoutes: Routes = [
   {
-    path: 'issues-list',
-    component: AppComponent
+    path: 'interventions',
+    component: ProductsViewComponent
+  },
+  {
+    path: 'affectations',
+    component: AffectationComponent
   },
 ];
 
@@ -31,10 +39,9 @@ const appRoutes: Routes = [
     AppComponent,
     ProductsViewComponent,
     MenuComponent,
-   
-
+    AffectationComponent,
   ],
-  imports: [MatSidenavModule, MatChipsModule, 
+  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule,
     MatSelectModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
@@ -46,6 +53,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatInputModule,
     MatStepperModule,
+    MatListModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],

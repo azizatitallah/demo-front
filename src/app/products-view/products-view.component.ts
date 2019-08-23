@@ -27,6 +27,7 @@ export interface Intervention {
 
 export class ProductsViewComponent implements OnInit {
 
+  today: number = Date.now();
   Date = Date.now();
   categories: {};
 
