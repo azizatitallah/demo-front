@@ -70,11 +70,11 @@ export class ProductsViewComponent implements OnInit {
 
   submitForm() {
     console.log(this.profileForm.value);
-    // this.productService.postIntervention(this.profileForm.value).subscribe( (response) => {
-    //   console.log(response);
-    //   this.getIntervention();
-    //   this.profileForm.reset();
-    // });
+    this.productService.postIntervention(this.profileForm.value).subscribe( (response) => {
+      console.log(response);
+      this.getIntervention();
+      this.profileForm.reset();
+    });
   }
 
   getIntervention() {
