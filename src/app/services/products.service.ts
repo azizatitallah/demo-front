@@ -56,13 +56,12 @@ export class ProductsService {
   getTypeIntervention() {
     return this.http.get(`${this.ipAddress}/categorie/type`);
   }
-  
+
 
   getNomOp() {
     return this.http.get(`${this.ipAddress}/NomPrenom/nom`);
   }
 
-  
   getAffectation() {
     return this.http.get(`${this.ipAddress}/operation/all`);
   }
@@ -75,14 +74,11 @@ export class ProductsService {
       );
   }
 
-  
   getOperation() {
     return this.http.get(`${this.ipAddress}/operation/alloperation`);
   }
-  
+
   getOperateur() {
     return this.http.get(`${this.ipAddress}/operation/alloperateur`);
   }
-
-
 }
