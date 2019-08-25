@@ -28,7 +28,7 @@ export interface Intervention {
 export class ProductsViewComponent implements OnInit {
 
   today: number = Date.now();
-  Date = Date.now();
+ 
   categories: {};
 
   payLoad = '';
@@ -53,7 +53,7 @@ export class ProductsViewComponent implements OnInit {
         NumMachine : ['', Validators.required],
         Reclamation : ['', Validators.required],
         Debut : ['', Validators.required],
-        Fin : ['', Validators.required],
+        Fin : ['' , Validators.required],
         Categorie : ['', Validators.required],
         chaine: ['', Validators.required],
         TypeMachine: ['', Validators.required]
@@ -69,11 +69,12 @@ export class ProductsViewComponent implements OnInit {
   }
 
   submitForm() {
-    this.productService.postIntervention(this.profileForm.value).subscribe( (response) => {
-      console.log(response);
-      this.getIntervention();
-      this.profileForm.reset();
-    });
+    console.log(this.profileForm.value);
+    // this.productService.postIntervention(this.profileForm.value).subscribe( (response) => {
+    //   console.log(response);
+    //   this.getIntervention();
+    //   this.profileForm.reset();
+    // });
   }
 
   getIntervention() {
@@ -85,8 +86,10 @@ export class ProductsViewComponent implements OnInit {
   }
 
   clickEvent() {
-    this.msg = this.Date;
-    this.profileForm.controls.Debut.setValue(Date.now());
+    this.profileForm.controls.Debut.setValue((new Date().getTime()) / 1000);
   }
 
+  clickFin() {
+    this.profileForm.controls.Fin.setValue((new Date().getTime()) / 1000);
+  }
 }

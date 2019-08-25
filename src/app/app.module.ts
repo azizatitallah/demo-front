@@ -22,7 +22,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { AffectationComponent } from './affectation/affectation.component';
-
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard'; 
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -32,6 +34,10 @@ const appRoutes: Routes = [
     path: 'affectations',
     component: AffectationComponent
   },
+  
+  { path: 'login', component: LoginComponent },  
+  { path: 'dashboard', component: DashboardComponent, canActivate : [AuthGuard] }  
+
 ];
 
 @NgModule({
@@ -40,9 +46,10 @@ const appRoutes: Routes = [
     ProductsViewComponent,
     MenuComponent,
     AffectationComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
-  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule,
-    MatSelectModule,
+  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
@@ -57,7 +64,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

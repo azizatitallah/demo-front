@@ -106,17 +106,20 @@
         </mat-form-field>
     
         <div class="row">
-          <button mat-stroked-button color="primary" (click)="clickEvent()">
+          <button mat-stroked-button color="primary" type="button" (click)="clickEvent()" >
             Marquer le début de l'opération
           </button>
-          <span class="timeSpan">{{msg | date:'h:mm a'}}</span>
+          <span class="timeSpan">{{ profileForm.controls.Debut.value * 1000 | date:'h:mm a'}}</span>
         </div>
 
-        <mat-form-field>
-          <mat-label>Fin</mat-label>
-          <input matInput type="time"  formControlName="Fin">
-        </mat-form-field>
-    
+
+        <div class="row">
+          <button mat-stroked-button color="primary" type="button" (click)="clickFin()">
+            Marquer la fin de l'opération
+          </button>
+          <span class="timeSpan">{{ profileForm.controls.Fin.value * 1000 | date:'h:mm a'}}</span>
+        </div>
+
         <mat-form-field>
           <mat-label>Categorie</mat-label> 
           <mat-select formControlName="Categorie" class="form-control">
