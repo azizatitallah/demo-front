@@ -1,5 +1,4 @@
-import { Component,  ViewChild } from '@angular/core';
-import {MatSidenav} from '@angular/material/sidenav';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +9,7 @@ export class MenuComponent {
 
   events: string[] = [];
   opened: boolean;
+  today: number = Date.now();
+  Date = Date.now();
 
-  
 }

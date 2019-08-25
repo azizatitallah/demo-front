@@ -13,19 +13,31 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MenuComponent } from './menu/menu.component';
 import { MatStepperModule } from '@angular/material/stepper';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import { AffectationComponent } from './affectation/affectation.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard'; 
 const appRoutes: Routes = [
   {
-    path: 'issues-list',
-    component: AppComponent
+    path: 'interventions',
+    component: ProductsViewComponent
   },
+  {
+    path: 'affectations',
+    component: AffectationComponent
+  },
+  
+  { path: 'login', component: LoginComponent },  
+  { path: 'dashboard', component: DashboardComponent, canActivate : [AuthGuard] }  
+
 ];
 
 @NgModule({
@@ -34,11 +46,10 @@ const appRoutes: Routes = [
     ProductsViewComponent,
     MenuComponent,
     AffectationComponent,
-   
-
+    LoginComponent,
+    DashboardComponent,
   ],
-  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule,
-    MatSelectModule,
+  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
     FormsModule,
@@ -49,10 +60,11 @@ const appRoutes: Routes = [
     MatIconModule,
     MatInputModule,
     MatStepperModule,
+    MatListModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

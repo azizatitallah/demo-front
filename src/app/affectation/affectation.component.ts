@@ -19,8 +19,6 @@ export interface Affectation {
 })
 export class AffectationComponent implements OnInit {
 
-  
-
  operateurs: {};
  operations: {};
 
@@ -30,30 +28,26 @@ export class AffectationComponent implements OnInit {
 
  dataSource = new Array<Affectation>();
 
- 
  constructor(
    public fb: FormBuilder,
    private productService: ProductsService,
    private router: Router
    ) {
      this.profileForm = this.fb.group({
-       operateur: ['', Validators.required],
-       operation : ['', Validators.required],
+       operateurFormControl: ['', Validators.required],
+       operationFormControl: ['', Validators.required],
      });
-
-     
    }
 
- ngOnInit() {    
-   this.getAffectation();
-   this.productService.getOperateur().subscribe(
-     data  => this.operateurs = data as Array<any>
-        );
+ ngOnInit() {
+    this.getAffectation();
+    this.productService.getOperateur().subscribe(
+      data  => this.operateurs = data as Array<any>
+    );
     this.productService.getOperation().subscribe(
-         data => this.operations = data as Array<any>
-            );
+      data => this.operations = data as Array<any>
+    );
  }
-
 
  submitForm() {
    this.productService.postAffectation(this.profileForm.value).subscribe( (response) => {
@@ -70,7 +64,5 @@ export class AffectationComponent implements OnInit {
      this.dataSource = response as Array<Affectation>;
    });
  }
- 
- 
 
 }

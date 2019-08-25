@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>SIMOTEX</span>
@@ -12,7 +12,7 @@
   
   </mat-toolbar>
   
-</div>
+</div> -->
 
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
@@ -83,14 +83,13 @@
       </table>
     </div>
   </mat-step>
+
   <mat-step [stepControl]="secondFormGroup">
     <ng-template matStepLabel>Ajouter une intervention</ng-template>
     <div class="container addIntervention stepContent">
       <h1> Ajouter </h1>
-      <hr>
       <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
     
-          
         <mat-form-field>
           <mat-label>Mécanicien</mat-label>
           <input matInput formControlName="mecanicien">
@@ -106,29 +105,27 @@
           <input matInput type="time" formControlName="Reclamation">
         </mat-form-field>
     
-        <mat-form-field>
-          <mat-label>Début</mat-label>
-          <button  (click)="clickEvent()" >
-            Click Me</button>
-            <input matInput type="text" formControlName="Debut" >
-            <h2>{{msg  | date:'h:mm a '}}</h2>
-        </mat-form-field>
+        <div class="row">
+          <button mat-stroked-button color="primary"  type= "button" (click)="clickEvent()" >
+            Marquer le début de l'opération
+          </button>
+          <span class="timeSpan">{{profileForm.controls.Debut.value | date:'h:mm a'}}</span>
+        </div>
 
-        
-        
-    
+
+        <div class="row">
+          <button mat-stroked-button color="primary"  type= "button" (click)="clickFin()">
+            Marquer la fin de l'opération
+          </button>
+          <span class="timeSpan">{{profileForm.controls.Fin.value | date:'h:mm a'}}</span>
+        </div>
+
         <mat-form-field>
-          <mat-label>Fin</mat-label>
-          <input matInput type="time"  formControlName="Fin">
+          <mat-label>Categorie</mat-label> 
+          <mat-select formControlName="Categorie" class="form-control">
+            <mat-option *ngFor="let categorie of categories" [value]="categorie.Type_intervention"  >{{categorie.Type_intervention}}</mat-option>
+          </mat-select>
         </mat-form-field>
-    
-        
-    <mat-form-field>
-      <mat-label>Categorie</mat-label> 
-        <mat-select formControlName="Categorie" class="form-control">
-          <mat-option *ngFor="let categorie of categories" [value]="categorie.Type_intervention"  >{{categorie.Type_intervention}}</mat-option>
-        </mat-select>
-    </mat-form-field>
         
         <mat-form-field>
           <mat-label>Chaine</mat-label>
@@ -140,20 +137,9 @@
           <input matInput formControlName="TypeMachine">
         </mat-form-field>
     
-        <button class="btn btn-success" mat-stroked-button color="accent"  type ="submit" >Save Product</button>
+        <button mat-stroked-button color="accent" type ="submit" >Save Product</button>
+
       </form>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
-
-
-
-
-
-
-
-
-
-
-
-

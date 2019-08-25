@@ -28,10 +28,8 @@ export interface Intervention {
 export class ProductsViewComponent implements OnInit {
 
   today: number = Date.now();
-  
-  Date = Date.now();
+ 
   categories: {};
-
 
   payLoad = '';
   profileForm: FormGroup;
@@ -44,7 +42,7 @@ export class ProductsViewComponent implements OnInit {
 
   dataSource = new Array<Intervention>();
   msg: number;
-  
+
   constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
@@ -55,18 +53,16 @@ export class ProductsViewComponent implements OnInit {
         NumMachine : ['', Validators.required],
         Reclamation : ['', Validators.required],
         Debut : ['', Validators.required],
-        Fin : ['', Validators.required],
+        Fin : ['' , Validators.required],
         Categorie : ['', Validators.required],
         chaine: ['', Validators.required],
         TypeMachine: ['', Validators.required]
       });
 
-      
     }
 
   ngOnInit() {
     this.getIntervention();
-    
     this.productService.getTypeIntervention().subscribe(
       data => this.categories = data,
          );
@@ -87,9 +83,16 @@ export class ProductsViewComponent implements OnInit {
       this.dataSource = response as Array<Intervention>;
     });
   }
-  
-  clickEvent(){
-    this.msg=this.Date;
+
+  clickEvent() {
+    this.profileForm.controls.Debut.setValue ((new Date().getTime())  / 1000);
+    
+    
   }
 
+  clickFin() {
+    this.profileForm.controls.Fin.setValue((new Date().getTime()) / 1000);
+    
+    
+  }
 }

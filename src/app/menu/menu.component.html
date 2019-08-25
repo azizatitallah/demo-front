@@ -1,22 +1,36 @@
+<mat-sidenav-container class="example-container"  >
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                (closed)="events.push('close!')"  >
+    <mat-toolbar color="primary">
+      SIMOTEX
+    </mat-toolbar>
 
+    <mat-list role="list">
+      <mat-list-item role="listitem" routerLink="/interventions">Interventions</mat-list-item>
+      <hr>
+      <mat-list-item role="listitem" routerLink="/affectations">Affectations</mat-list-item>
+      <hr>
+    </mat-list>
+  </mat-sidenav>
 
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>{{ (sidenav.opened)? 'close':'menu' }}</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span>SIMOTEX</span>
 
+      <span class="spacer"></span>
 
-<div> 
-  <mat-sidenav-container class="example-container"  >
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-                 (closed)="events.push('close!')"  >
-     Rendement de la ligne 
+      <span>  <mat-icon > date_range</mat-icon> {{ today | date:'fullDate'}} </span>
+      <span>  <mat-icon > query_builder</mat-icon> {{ today | date:'h:mm a '}} </span>
+      <span> <mat-icon > account_circle</mat-icon> {{ data }} </span>
+      <span> <mat-icon > settings_power</mat-icon></span>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
     
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <app-products-view></app-products-view>
-     
-      <p><button mat-button (click)="sidenav.toggle()">Open</button></p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-
-
-
+  </mat-sidenav-content>
+</mat-sidenav-container>
