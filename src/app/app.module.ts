@@ -25,6 +25,7 @@ import { AffectationComponent } from './affectation/affectation.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard'; 
+import {MatRadioModule} from '@angular/material/radio';
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
     DashboardComponent,
   ],
   imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes), MatRadioModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,

@@ -27,6 +27,8 @@ export interface Intervention {
 
 export class ProductsViewComponent implements OnInit {
 
+  favoriteSeason: number;
+
   today: number = Date.now();
  
   categories: {};
@@ -86,10 +88,14 @@ export class ProductsViewComponent implements OnInit {
   }
 
   clickEvent() {
-    this.profileForm.controls.Debut.setValue((new Date().getTime()) / 1000);
+    return this.profileForm.controls.Debut.setValue((new Date().getTime()) / 1000);
+  }
+  
+  clickFin() {
+    return this.profileForm.controls.Fin.setValue((new Date().getTime()) / 1000);
   }
 
-  clickFin() {
-    this.profileForm.controls.Fin.setValue((new Date().getTime()) / 1000);
-  }
+
+
+
 }

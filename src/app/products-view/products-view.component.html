@@ -105,6 +105,9 @@
           <input matInput type="time" formControlName="Reclamation">
         </mat-form-field>
     
+
+
+        
         <div class="row">
           <button mat-stroked-button color="primary" type="button" (click)="clickEvent()" >
             Marquer le début de l'opération
@@ -114,7 +117,7 @@
 
 
         <div class="row">
-          <button mat-stroked-button color="primary" type="button" (click)="clickFin()">
+          <button mat-stroked-button color="primary" type="button"   (click)="clickFin()">
             Marquer la fin de l'opération
           </button>
           <span class="timeSpan">{{ profileForm.controls.Fin.value * 1000 | date:'h:mm a'}}</span>
