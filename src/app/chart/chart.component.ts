@@ -14,12 +14,12 @@ export class ChartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe( (response) => {
-      const products = response as Array<any>;
-      this.chart = new Chart('myChart', {
-        type: 'bar',
+   this.productService.getProducts().subscribe( (response) => {
+     const products = response as Array<any>;
+     this.chart = new Chart('myChart', {
+       type: 'bar',
         data: {
-            labels: ['PullOver', 'Blue'],
+           labels: ['PullOver', 'Blue'],
             datasets: [{
                 label: 'Stock',
                 data: [products[0]['stock'], products[1]['stock']],

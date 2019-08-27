@@ -26,6 +26,8 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard'; 
 import {MatRadioModule} from '@angular/material/radio';
+import { PresenceComponent } from './presence/presence.component';
+
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     AffectationComponent,
     LoginComponent,
     DashboardComponent,
+    PresenceComponent,
   ],
   imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule,
     RouterModule.forRoot(appRoutes), MatRadioModule,

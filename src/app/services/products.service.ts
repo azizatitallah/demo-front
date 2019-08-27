@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-
+import {Presente } from './../presence/presence.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +34,14 @@ export class ProductsService {
 
   postIntervention (intervention): Observable<Intervention> {
     return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+
+  postPresence(Presente): Observable<Presente> {
+    return this.http.post<Presente>(`${this.ipAddress}/operateur/presence`, JSON.stringify(Presente), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

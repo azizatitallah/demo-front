@@ -1,0 +1,21 @@
+
+<div>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
+   
+      <mat-selection-list  formControlName="Matricule"   #op>
+        <mat-list-option *ngFor="let operateur of operateurs"  [value]='operateur.Matricule'>
+          {{operateur.Nom_op }} {{ operateur.Prenom_op  }}
+        </mat-list-option>
+      </mat-selection-list>
+
+    
+  
+    <p>
+      Nombre des opératrices présentes : {{op.selectedOptions.selected.length}}
+     </p>
+   
+       
+    <button mat-stroked-button color="accent" type="submit">Enregistrer</button>
+  </form>
+  </div>
