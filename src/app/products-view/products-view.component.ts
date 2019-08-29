@@ -26,16 +26,9 @@ export interface Intervention {
 })
 
 export class ProductsViewComponent implements OnInit {
-
-  favoriteSeason: number;
-
   today: number = Date.now();
- 
-  categories: {};
-
-  payLoad = '';
+   categories: {};
   profileForm: FormGroup;
-
   displayedColumns: string[] = [
     'ID', 'mecanicien', 'Date',
    'NumMachine', 'Reclamation', 'Debut',
@@ -43,8 +36,7 @@ export class ProductsViewComponent implements OnInit {
   ];
 
   dataSource = new Array<Intervention>();
-  msg: number;
-
+ 
   constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
@@ -63,11 +55,16 @@ export class ProductsViewComponent implements OnInit {
 
     }
 
+    mecaniciens: {};
   ngOnInit() {
     this.getIntervention();
     this.productService.getTypeIntervention().subscribe(
       data => this.categories = data,
          );
+
+         this.productService.getMecanicien().subscribe(
+          data => this.mecaniciens = data,
+             );
   }
 
   submitForm() {

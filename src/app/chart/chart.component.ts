@@ -14,7 +14,7 @@ export class ChartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   this.productService.getProducts().subscribe( (response) => {
+   this.productService.getAffectation().subscribe( (response) => {
      const products = response as Array<any>;
      this.chart = new Chart('myChart', {
        type: 'bar',

@@ -1,15 +1,8 @@
-<div class="operateur">
-  <mat-grid-list cols="6" rowHeight="100px">
-    <mat-grid-tile
-      *ngFor="let operation of operations"
-      [colspan]="operation.cols"
-      [rowspan]="operation.rows"
-      gutterSize= 100px >
-      <button mat-raised-button color="primary"
-        *ngFor="let operation of operations"
-        [value]="operation.Designation">
-        {{ operation.Designation }}
-      </button>         
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile *ngFor="let operation of operations">
+<button mat-raised-button color="primary"  type="button" [value]="operation.Code_Operation" (click)= "postOperations()" >
+{{ operation.Designation }}
+</button> 
+</mat-grid-tile>
+</mat-grid-list>

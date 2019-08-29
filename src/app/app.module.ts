@@ -1,3 +1,4 @@
+import { OperationsComponent } from './operations/operations.component';
 import { ProductsService } from './services/products.service';
 import {HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,7 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard'; 
 import {MatRadioModule} from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+
     AppComponent,
     ProductsViewComponent,
     MenuComponent,
@@ -52,8 +54,9 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     PresenceComponent,
+    OperationsComponent
   ],
-  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule,
+  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule, MatGridListModule,
     RouterModule.forRoot(appRoutes), MatRadioModule,
     HttpModule,
     FormsModule,

@@ -1,3 +1,4 @@
+import { mecano } from './../menu/menu.component';
 import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
@@ -32,6 +33,10 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/intervention/all`);
   }
 
+  
+  getMecanicien() {
+    return this.http.get(`${this.ipAddress}/intervention/mecano`);
+  }
   postIntervention (intervention): Observable<Intervention> {
     return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
       .pipe(
@@ -62,7 +67,7 @@ export class ProductsService {
   }
 
   getTypeIntervention() {
-    return this.http.get(`${this.ipAddress}/categorie/type`);
+    return this.http.get(`${this.ipAddress}/categorie/all`);
   }
 
 
@@ -75,6 +80,14 @@ export class ProductsService {
   }
 
   postAffectation (Affectation): Observable<Affectation> {
+    return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
+  }
+  
+  postOperation (Affectation): Observable<Affectation> {
     return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
       .pipe(
         retry(1),

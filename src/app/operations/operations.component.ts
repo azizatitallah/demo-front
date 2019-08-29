@@ -36,26 +36,32 @@ export class OperationsComponent implements OnInit {
     private router: Router
     ) {
       this.profileForm = this.fb.group({
-        operateur: ['', Validators.required],
-        operation : ['', Validators.required],
+       Matricule: ['', Validators.required],
+        Code_Operation : ['', Validators.required],
       });
 
       
     }
 
   ngOnInit() {    
-    this.getAffectation();
+    this.getOperation();
     this.getOperation();
     this.productService.getOperateur().subscribe(
       data => this.operateurs = data,
          );
     
   }
+  
+  postOperations(){
+    this.productService.postOperation(this.Code_operation).subscribe( (response) => {
+      console.log(response);
+  });
+  }
 
   submitForm() {
-    this.productService.postAffectation(this.profileForm.value).subscribe( (response) => {
+    this.productService.postOperation(this.profileForm.value).subscribe( (response) => {
       console.log(response);
-      this.getAffectation();
+      this.getOperation();
       this.profileForm.reset();
     });
   }
@@ -67,13 +73,5 @@ getOperation(){
       }
 
 
-  getAffectation() {
-    this.productService.getAffectation().subscribe(
-    (response) => {
-      console.log(response);
-      this.dataSource = response as Array<Affectation>;
-    });
-  }
-  
 
 }
