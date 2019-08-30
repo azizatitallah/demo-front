@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { stringify } from '@angular/compiler/src/util';
 
 export interface Affectation {
   Matricule: number;
@@ -49,26 +50,15 @@ export class OperationsComponent implements OnInit {
       data => this.operateurs = data,
          );
   }
+  
+  Code_operation: string;
 
-<<<<<<< HEAD
-
-
-operationDetails: { Code_Operation:"" , Matricule:number } ; 
- postOperations(){
-    this.productService.postOperation(this.operationDetails).subscribe( (response) => {   
-      console.log(response);
-      this.getOperation();
-      console.log(this.operationDetails);
-  });
-=======
   postOperations() {
+    console.log(this.Code_operation);
     this.productService.postOperation(this.Code_operation).subscribe( (response) => {
       console.log(response);
     });
   }
->>>>>>> 17e8e7aa24bdfc62366a59d6d0ba692836367d59
-
-}
 
 
 
