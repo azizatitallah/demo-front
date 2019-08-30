@@ -27,7 +27,12 @@ export class OperationsComponent implements OnInit {
 
    postOperations(CodeOperation) {
     console.log(CodeOperation);
-    this.productService.postOperation(CodeOperation).subscribe( (response) => {
+    const OPERATION = {
+      Matricule: this.Matricule,
+      Code_Operation: CodeOperation
+    };
+
+    this.productService.postOperation(OPERATION).subscribe( (response) => {
       console.log(response);
     });
   }
