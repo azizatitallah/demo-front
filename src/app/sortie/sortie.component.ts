@@ -16,7 +16,8 @@ export class employee {
   styleUrls: ['./sortie.component.css']
 })
 export class SortieComponent implements OnInit {
-
+  Presences:{};
+  employeeData: number ;
   profileForm: FormGroup;
 
   constructor(
@@ -28,17 +29,14 @@ export class SortieComponent implements OnInit {
        Matricule: ['', Validators.required],
        });
     }
-
-    Presences:{};
+   
   ngOnInit() { 
       this.productService.getOperateurPresent().subscribe(
              data => this.Presences = data,    
-             )
-      
+             )      
   }
 
 
- employeeData: number ;
  submitForm(Matricule) {
    
     this.productService.updatePresence(Matricule, this.employeeData).subscribe((response) => {
