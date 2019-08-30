@@ -8,9 +8,8 @@ import { stringify } from '@angular/compiler/src/util';
 
 export interface Affectation {
   Matricule: number;
-  Code_Operation: string;
+  Code_Operation: number;
   Date: Date;
-
 }
 
 @Component({
@@ -19,17 +18,13 @@ export interface Affectation {
   styleUrls: ['./operations.component.css']
 })
 export class OperationsComponent implements OnInit {
-
-
   operateurs: {};
   operations: {};
-
   profileForm: FormGroup;
-
   displayedColumns: string[] = [ 'Matricule', 'Code_Operation', 'Date'];
-
   dataSource = new Array<Affectation>();
-  Code_operation: string;
+  Code_operation: number;
+  Matricule = 0;
 
   constructor(
     public fb: FormBuilder,
