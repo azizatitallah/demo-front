@@ -96,8 +96,8 @@ export class ProductsService {
       );
   }
 
-  postOperation(Affectation): Observable<Affectation> {
-    return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
+  postOperation(effectue): Observable<Affectation> {
+    return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, effectue, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
