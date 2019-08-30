@@ -88,15 +88,15 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/operation/all`);
   }
 
-  postAffectation (Affectation): Observable<Affectation> {
-    return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
+  postAffectation(effectue): Observable<any> {
+    return this.http.post<any>(`${this.ipAddress}/operation/create`, effectue, this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  postOperation (Affectation): Observable<Affectation> {
+  postOperation(Affectation): Observable<Affectation> {
     return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
       .pipe(
         retry(1),
