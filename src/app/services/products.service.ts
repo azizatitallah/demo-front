@@ -104,8 +104,6 @@ export class ProductsService {
       );
   }
 
-
-
   updatePresence(Matricule, employee): Observable<employee> {
     return this.http.put<employee>(`${this.ipAddress}/operateur/sortie`, JSON.stringify(Matricule), this.httpOptions)
     .pipe(

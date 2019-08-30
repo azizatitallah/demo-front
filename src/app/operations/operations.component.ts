@@ -29,6 +29,7 @@ export class OperationsComponent implements OnInit {
   displayedColumns: string[] = [ 'Matricule', 'Code_Operation', 'Date'];
 
   dataSource = new Array<Affectation>();
+  Code_operation: string;
 
   constructor(
     public fb: FormBuilder,
@@ -48,10 +49,8 @@ export class OperationsComponent implements OnInit {
     this.getOperation();
     this.productService.getOperateur().subscribe(
       data => this.operateurs = data,
-         );
+    );
   }
-  
-  Code_operation: string;
 
   postOperations() {
     console.log(this.Code_operation);
@@ -60,11 +59,7 @@ export class OperationsComponent implements OnInit {
     });
   }
 
-
-
-
-
-submitForm() {
+  submitForm() {
     this.productService.postOperation(this.profileForm.value).subscribe( (response) => {
       console.log(response);
       this.getOperation();
