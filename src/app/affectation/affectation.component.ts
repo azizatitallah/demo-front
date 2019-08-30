@@ -6,9 +6,8 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 export interface Affectation {
-  
-  Date: Date;
 
+  Date: Date;
   Nom_Prenom: string;
   Operation: string;
 
@@ -51,10 +50,7 @@ export class AffectationComponent implements OnInit {
     );
  }
 
-
-
  submitForm() {
-   
   console.log(this.profileForm.value);
    this.productService.postAffectation(this.profileForm.value).subscribe( (response) => {
      console.log(response);
