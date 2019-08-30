@@ -6,11 +6,8 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 export interface Presente {
-  
- Matricule: number;
-
+  Matricule: number;
 }
-
 
 @Component({
   selector: 'app-presence',
@@ -18,13 +15,15 @@ export interface Presente {
   styleUrls: ['./presence.component.css']
 })
 export class PresenceComponent implements OnInit {
+
   profileForm: FormGroup;
   operateurs: string[];
   checked = false;
-  constructor( 
+
+  constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
-    private router: Router) { 
+    private router: Router) {
       this.profileForm = this.fb.group({
         Matricule : ['', Validators.required]
        });
@@ -37,14 +36,10 @@ export class PresenceComponent implements OnInit {
   }
 
   submitForm() {
-   
-    console.log(this.profileForm.value);
-     this.productService.postPresence(this.profileForm.value).subscribe( (response) => {
-       console.log(response);
-       this.profileForm.reset();
-     });
-   }
-
-
+  console.log(this.profileForm.value);
+  this.productService.postPresence(this.profileForm.value).subscribe( (response) => {
+    console.log(response);
+    this.profileForm.reset();
+  });
+  }
 }
-

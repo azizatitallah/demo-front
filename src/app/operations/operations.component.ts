@@ -28,30 +28,29 @@ export class OperationsComponent implements OnInit {
   displayedColumns: string[] = [ 'Matricule', 'Code_Operation', 'Date'];
 
   dataSource = new Array<Affectation>();
- 
-  
+
   constructor(
     public fb: FormBuilder,
     private productService: ProductsService,
     private router: Router
-    ) {
-      this.profileForm = this.fb.group({
-       Matricule: ['', Validators.required],
-        Code_Operation : ['', Validators.required],
-      });
+  ) {
 
-      
-    }
+    this.profileForm = this.fb.group({
+      Matricule: ['', Validators.required],
+      Code_Operation : ['', Validators.required],
+    });
 
-  ngOnInit() {    
+  }
+
+  ngOnInit() {
     this.getOperation();
     this.getOperation();
     this.productService.getOperateur().subscribe(
       data => this.operateurs = data,
          );
-    
   }
 
+<<<<<<< HEAD
 
 
 operationDetails: { Code_Operation:"" , Matricule:number } ; 
@@ -61,6 +60,13 @@ operationDetails: { Code_Operation:"" , Matricule:number } ;
       this.getOperation();
       console.log(this.operationDetails);
   });
+=======
+  postOperations() {
+    this.productService.postOperation(this.Code_operation).subscribe( (response) => {
+      console.log(response);
+    });
+  }
+>>>>>>> 17e8e7aa24bdfc62366a59d6d0ba692836367d59
 
 }
 
@@ -76,12 +82,10 @@ submitForm() {
     });
   }
 
-getOperation(){
-  this.productService.getOperation().subscribe(
-    data => this.operations = data,
-       );
-      }
-
-
+  getOperation() {
+    this.productService.getOperation().subscribe(
+      data => this.operations = data,
+    );
+  }
 
 }

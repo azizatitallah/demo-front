@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import {Presente } from './../presence/presence.component';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +41,6 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/intervention/all`);
   }
 
-  
   getMecanicien() {
     return this.http.get(`${this.ipAddress}/intervention/mecano`);
   }
@@ -95,7 +95,7 @@ export class ProductsService {
         catchError(this.errorHandler)
       );
   }
-  
+
   postOperation (Affectation): Observable<Affectation> {
     return this.http.post<Affectation>(`${this.ipAddress}/operation/create`, JSON.stringify(Affectation), this.httpOptions)
       .pipe(
