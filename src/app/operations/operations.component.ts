@@ -51,14 +51,24 @@ export class OperationsComponent implements OnInit {
          );
     
   }
-  
-  postOperations(){
-    this.productService.postOperation(this.Code_operation).subscribe( (response) => {
-      console.log(response);
-  });
-  }
 
-  submitForm() {
+
+
+operationDetails: { Code_Operation:"" , Matricule:number } ; 
+ postOperations(){
+    this.productService.postOperation(this.operationDetails).subscribe( (response) => {   
+      console.log(response);
+      this.getOperation();
+      console.log(this.operationDetails);
+  });
+
+}
+
+
+
+
+
+submitForm() {
     this.productService.postOperation(this.profileForm.value).subscribe( (response) => {
       console.log(response);
       this.getOperation();

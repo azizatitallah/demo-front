@@ -1,3 +1,4 @@
+import { SortieComponent, employee } from './../sortie/sortie.component';
 import { mecano } from './../menu/menu.component';
 import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
@@ -29,6 +30,12 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/intervention/all`);
   }
 
+  getOperateurPresent() {
+    return this.http.get(`${this.ipAddress}/operateur/operateurPresent`);
+  }
+
+  
+
   getIntervention() {
     return this.http.get(`${this.ipAddress}/intervention/all`);
   }
@@ -37,6 +44,8 @@ export class ProductsService {
   getMecanicien() {
     return this.http.get(`${this.ipAddress}/intervention/mecano`);
   }
+
+
   postIntervention (intervention): Observable<Intervention> {
     return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
       .pipe(
@@ -93,6 +102,16 @@ export class ProductsService {
         retry(1),
         catchError(this.errorHandler)
       );
+  }
+
+
+
+  updatePresence(Matricule, employee): Observable<employee> {
+    return this.http.put<employee>(`${this.ipAddress}/operateur/sortie`, JSON.stringify(Matricule), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
   }
 
   getOperation() {

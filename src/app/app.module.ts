@@ -29,6 +29,7 @@ import { AuthGuard } from './guards/auth.guard';
 import {MatRadioModule} from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { SortieComponent } from './sortie/sortie.component';
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -37,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'affectations',
     component: AffectationComponent
+  },
+  {
+    path: 'Presences',
+    component: PresenceComponent
   },
   
   { path: 'login', component: LoginComponent },  
@@ -54,7 +59,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     PresenceComponent,
-    OperationsComponent
+    OperationsComponent,
+    SortieComponent
   ],
   imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule, MatGridListModule,
     RouterModule.forRoot(appRoutes), MatRadioModule,
