@@ -22,23 +22,30 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
    this.productService.getInterventionCategorie().subscribe( (response) => {
-     console.log(response);
-     const Label = response as Array<Categorie>;     
-     const Counts = response as Array<Counts>;
+
+    const RESPONSE = response as Array<any>;
+    let Labels = [];
+    let Counts = [];
+
+    for (let i = 0; i < RESPONSE.length; i++) {
+        Labels.push(RESPONSE[i].Type_intervention);
+        Counts.push(RESPONSE[i].Compte);
+    }
+
      this.chart = new Chart('myChart', {
        type: 'bar',
         data: {
-           labels: Label,
+           labels: Labels,
             datasets: [{
-                label: Label,
+                label: 'Nombre d\'interventions',
                 data: Counts,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
+                    // 'rgba(54, 162, 235, 0.2)',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
+                    // 'rgba(54, 162, 235, 1)',
                 ],
                 borderWidth: 1
             }]
