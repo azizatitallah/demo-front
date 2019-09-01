@@ -1,4 +1,3 @@
-import { ChartComponent } from './chart/chart.component';
 import { OperationsComponent } from './operations/operations.component';
 import { ProductsService } from './services/products.service';
 import {HttpHeaders, HttpClientModule } from '@angular/common/http';
@@ -31,6 +30,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { SortieComponent } from './sortie/sortie.component';
+import { ChartsComponent } from './charts/charts.component';
 
 const appRoutes: Routes = [
   {
@@ -59,7 +59,6 @@ const appRoutes: Routes = [
   declarations: [
 
     AppComponent,
-    ChartComponent,
     ProductsViewComponent,
     MenuComponent,
     AffectationComponent,
@@ -67,7 +66,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     PresenceComponent,
     OperationsComponent,
-    SortieComponent
+    SortieComponent,
+    ChartsComponent
   ],
   imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule, MatGridListModule,
     RouterModule.forRoot(appRoutes), MatRadioModule,

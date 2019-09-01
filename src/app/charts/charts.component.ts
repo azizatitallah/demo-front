@@ -2,19 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ProductsService } from '../services/products.service';
 
-
-export interface Categorie {
-  Type_intervention: string;
-}
-export interface Counts {
-  Compte: number;
-}
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  selector: 'app-charts',
+  templateUrl: './charts.component.html',
+  styleUrls: ['./charts.component.css']
 })
-export class ChartComponent implements OnInit {
+export class ChartsComponent implements OnInit {
   chart;
   constructor(
     private productService: ProductsService,
@@ -48,6 +41,7 @@ export class ChartComponent implements OnInit {
                     // 'rgba(54, 162, 235, 1)',
                 ],
                 borderWidth: 1
+               
             }]
         },
         options: {
@@ -63,4 +57,7 @@ export class ChartComponent implements OnInit {
   });
   }
 
+ 
+
 }
+
