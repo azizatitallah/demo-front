@@ -34,7 +34,7 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/operateur/operateurPresent`);
   }
 
-  getInterventionCategorie(){
+  getInterventionCategorie() {
     return this.http.get(`${this.ipAddress}/intervention/interventionCategorie`);
   }
 
@@ -107,11 +107,9 @@ export class ProductsService {
 
   updatePresence(Matricule): Observable<employee> {
     return this.http.put<employee>(`${this.ipAddress}/operateur/${Matricule}`, JSON.stringify(Matricule));
-    
   }
   updateEffectue(Matricule, Code_Operation): Observable<any> {
     return this.http.put<any>(`${this.ipAddress}/effectue/${Matricule}/${Code_Operation}`, JSON.stringify(Code_Operation));
-    
   }
 
   getOperation() {

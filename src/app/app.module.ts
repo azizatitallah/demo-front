@@ -1,7 +1,7 @@
 import { ChartComponent } from './chart/chart.component';
 import { OperationsComponent } from './operations/operations.component';
 import { ProductsService } from './services/products.service';
-import {HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
@@ -26,10 +26,10 @@ import { MatListModule } from '@angular/material/list';
 import { AffectationComponent } from './affectation/affectation.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthGuard } from './guards/auth.guard'; 
-import {MatRadioModule} from '@angular/material/radio';
+import { AuthGuard } from './guards/auth.guard';
+import { MatRadioModule } from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { SortieComponent } from './sortie/sortie.component';
 
 const appRoutes: Routes = [
@@ -49,9 +49,9 @@ const appRoutes: Routes = [
     path: 'Sortie',
     component: SortieComponent
   },
-  
-  { path: 'login', component: LoginComponent },  
-  { path: 'dashboard', component: DashboardComponent, canActivate : [AuthGuard] }  
+
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate : [AuthGuard] }
 
 ];
 
