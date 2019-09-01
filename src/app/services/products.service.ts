@@ -1,5 +1,4 @@
-import { SortieComponent, employee } from './../sortie/sortie.component';
-import { mecano } from './../menu/menu.component';
+import { SortieComponent, employee} from './../sortie/sortie.component';
 import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
@@ -27,15 +26,17 @@ export class ProductsService {
     private http: HttpClient,
   ) { }
 
-  getInterventionByID() {
-    return this.http.get(`${this.ipAddress}/intervention/all`);
+  getMecanoByID(Matricule) {
+    return this.http.get(`${this.ipAddress}/intervention/${Matricule}`);
   }
 
   getOperateurPresent() {
     return this.http.get(`${this.ipAddress}/operateur/operateurPresent`);
   }
 
-  
+  getInterventionCategorie(){
+    return this.http.get(`${this.ipAddress}/intervention/interventionCategorie`);
+  }
 
   getIntervention() {
     return this.http.get(`${this.ipAddress}/intervention/all`);
@@ -104,12 +105,13 @@ export class ProductsService {
       );
   }
 
-  updatePresence(Matricule, employee): Observable<employee> {
-    return this.http.put<employee>(`${this.ipAddress}/operateur/sortie`, JSON.stringify(Matricule), this.httpOptions)
-    .pipe(
-      retry(1),
-      catchError(this.errorHandler)
-    )
+  updatePresence(Matricule): Observable<employee> {
+    return this.http.put<employee>(`${this.ipAddress}/operateur/${Matricule}`, JSON.stringify(Matricule));
+    
+  }
+  updateEffectue(Matricule, Code_Operation): Observable<any> {
+    return this.http.put<any>(`${this.ipAddress}/effectue/${Matricule}/${Code_Operation}`, JSON.stringify(Code_Operation));
+    
   }
 
   getOperation() {

@@ -1,7 +1,7 @@
 
 <div>
 
-  <form [formGroup]="profileForm" (ngSubmit)="submitForm()"  *ngFor="let operateur of operateurs" novalidate>
+  <form [formGroup]="profileForm" (ngSubmit)="submitForm()"  novalidate>
    
       <mat-selection-list  formControlName="Matricule"   #op>
         <mat-list-option *ngFor="let operateur of operateurs"  [value]='operateur.Matricule'>

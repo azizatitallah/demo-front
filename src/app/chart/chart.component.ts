@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ProductsService } from '../services/products.service';
 
+
+export interface Categorie {
+  Type_intervention: string;
+}
+export interface Counts {
+  Compte: number;
+}
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
@@ -14,15 +21,17 @@ export class ChartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   this.productService.getAffectation().subscribe( (response) => {
-     const products = response as Array<any>;
+   this.productService.getInterventionCategorie().subscribe( (response) => {
+     console.log(response);
+     const Label = response as Array<Categorie>;     
+     const Counts = response as Array<Counts>;
      this.chart = new Chart('myChart', {
        type: 'bar',
         data: {
-           labels: ['PullOver', 'Blue'],
+           labels: Label,
             datasets: [{
-                label: 'Stock',
-                data: [products[0]['stock'], products[1]['stock']],
+                label: Label,
+                data: Counts,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

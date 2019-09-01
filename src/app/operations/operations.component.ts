@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../services/products.service';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-operations',
@@ -23,6 +19,14 @@ export class OperationsComponent implements OnInit {
 
   ngOnInit() {
     this.getOperation();
+  }
+
+  updateEffectue( Matricule, Code_Operation) {
+    console.log(Code_Operation);
+   
+    this.productService.updateEffectue(Matricule, Code_Operation).subscribe( (response) => {
+      console.log(response);
+    });
   }
 
    postOperations(CodeOperation) {

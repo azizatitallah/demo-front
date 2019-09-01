@@ -5,9 +5,12 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
-export class employee {
-
+export class employee{
   Matricule: number;
+  date: Date;
+  Debut: number;
+  Fin: number;
+
 }
 
 @Component({
@@ -16,31 +19,30 @@ export class employee {
   styleUrls: ['./sortie.component.css']
 })
 export class SortieComponent implements OnInit {
-  Presences:{};
-  employeeData: number ;
-  profileForm: FormGroup;
-
-  constructor(
-    public fb: FormBuilder,
+Presences:{};
+Matricule:number;
+  
+constructor(
     private productService: ProductsService,
     private router: Router
-    ) {
-      this.profileForm = this.fb.group({
-       Matricule: ['', Validators.required],
-       });
-    }
+    ) {  }
    
   ngOnInit() { 
       this.productService.getOperateurPresent().subscribe(
              data => this.Presences = data,    
-             )      
-  }
+             );
+             
+      }
 
 
- submitForm(Matricule) {
-   
-    this.productService.updatePresence(Matricule, this.employeeData).subscribe((response) => {
-       console.log(response);
-      })
-   } 
+  updatePresence(Matricule) {
+        this.productService.updatePresence(Matricule).subscribe( (response) => {
+      console.log(response);
+    });
+    
+    
+    console.log(Matricule);
+            }
+  
+
 }

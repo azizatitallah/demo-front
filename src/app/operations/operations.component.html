@@ -1,7 +1,7 @@
 
 <mat-grid-list cols="4" rowHeight="100px">
     <mat-grid-tile *ngFor="let operation of operations">
-        <button mat-raised-button color="primary" type="button" (click)="postOperations(operation.Code_Operation)">
+        <button mat-raised-button color="primary" type="button" (click)="updateEffectue(Matricule, operation.Code_Operation)">
             {{ operation.Designation }}
         </button>
     </mat-grid-tile>

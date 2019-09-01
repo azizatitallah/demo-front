@@ -1,5 +1,7 @@
-        
-             <button mat-icon-button  *ngFor="let Presence of Presences" (click)="submitForm(Presence.Matricule)">
+<div>
+   <mat-action-list *ngFor="let Presence of Presences" >
+             <button mat-raised-button color="primary"  (click)="updatePresence(Presence.Matricule)">
                 {{ Presence.Matricule}}
              </button>
-          
+</mat-action-list>
+</div>

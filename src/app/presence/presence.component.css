@@ -1,6 +1,7 @@
 form {
-    position:absolute; 
-    margin-left: -450px;
-     width: 900; 
-     top:10px;
-      left:35%; text-align: left; }
+    display: flex;
+        flex-direction: column;
+      justify-self: center;
+    }
+    
+    

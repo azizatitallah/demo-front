@@ -1,3 +1,4 @@
+import { ChartComponent } from './chart/chart.component';
 import { OperationsComponent } from './operations/operations.component';
 import { ProductsService } from './services/products.service';
 import {HttpHeaders, HttpClientModule } from '@angular/common/http';
@@ -30,6 +31,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { SortieComponent } from './sortie/sortie.component';
+
 const appRoutes: Routes = [
   {
     path: 'interventions',
@@ -43,6 +45,10 @@ const appRoutes: Routes = [
     path: 'Presences',
     component: PresenceComponent
   },
+  {
+    path: 'Sortie',
+    component: SortieComponent
+  },
   
   { path: 'login', component: LoginComponent },  
   { path: 'dashboard', component: DashboardComponent, canActivate : [AuthGuard] }  
@@ -53,6 +59,7 @@ const appRoutes: Routes = [
   declarations: [
 
     AppComponent,
+    ChartComponent,
     ProductsViewComponent,
     MenuComponent,
     AffectationComponent,
