@@ -23,7 +23,7 @@ export class OperationsComponent implements OnInit {
 
   updateEffectue( Matricule, Code_Operation) {
     console.log(Code_Operation);
-   
+
     this.productService.updateEffectue(Matricule, Code_Operation).subscribe( (response) => {
       console.log(response);
     });

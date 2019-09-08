@@ -1,0 +1,56 @@
+<form [formGroup]="profileForm" (ngSubmit)="submitForm()" novalidate>
+    
+        
+  <mat-form-field>
+      <mat-label>Mecanicien</mat-label> 
+      <mat-select formControlName="mecanicien" class="form-control">
+        <mat-option [value]="mecanicien.Matricule_mecanicien" *ngFor="let mecanicien of mecaniciens"   >{{mecanicien.Nom_mecanicien }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Num de machine</mat-label>
+    <input matInput formControlName="NumMachine">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Reclamation</mat-label>
+    <input matInput type="time" formControlName="Reclamation">
+  </mat-form-field>
+
+
+  
+  <div class="row">
+    <button mat-stroked-button color="primary" type="button" (click)="clickEvent()" >
+      Marquer le début de l'opération
+    </button>
+    <span class="timeSpan">{{ profileForm.controls.Debut.value * 1000 | date:'h:mm a'}}</span>
+  </div>
+
+  <div class="row">
+    <button mat-stroked-button color="primary" type="button"   (click)="clickFin()">
+      Marquer la fin de l'opération
+    </button>
+    <span class="timeSpan">{{ profileForm.controls.Fin.value * 1000 | date:'h:mm a'}}</span>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Categorie</mat-label> 
+    <mat-select formControlName="Categorie" class="form-control">
+      <mat-option [value]="categorie.id_categorie_intervention" *ngFor="let categorie of categories"   >{{categorie.Type_intervention}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Chaine</mat-label>
+    <input matInput formControlName="chaine">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Type de Machine</mat-label>
+    <input matInput formControlName="TypeMachine">
+  </mat-form-field>
+
+  <button mat-stroked-button color="accent" type ="submit" >Save Product</button>
+
+</form>

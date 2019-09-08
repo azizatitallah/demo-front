@@ -17,6 +17,8 @@ export interface Intervention {
   chaine: string;
   TypeMachine: string;
   Etat_Intervention: string;
+
+
 }
 
 @Component({
@@ -32,7 +34,7 @@ export class ProductsViewComponent implements OnInit {
   displayedColumns: string[] = [
     'ID', 'mecanicien', 'Date',
    'NumMachine', 'Reclamation', 'Debut',
-    'Fin', 'Categorie', 'chaine', 'TypeMachine', 'Etat_Intervention'
+    'Fin', 'Categorie', 'chaine', 'TypeMachine', 'Etat_Intervention', 'Update'
   ];
 
   dataSource = new Array<Intervention>();
@@ -65,6 +67,12 @@ export class ProductsViewComponent implements OnInit {
          this.productService.getMecanicien().subscribe(
           data => this.mecaniciens = data,
              );
+  }
+  
+  UpdateIntervention(ID){
+    this.productService.UpdateIntervention(ID).subscribe( (response) => {
+      console.log(response);
+    });
   }
 
   submitForm() {

@@ -1,9 +1,10 @@
+import { AutentifierComponent } from './../autentification/autentifier/autentifier.component';
 import { Component } from '@angular/core';
-import { ProductsService } from './../services/products.service';
 import { Router } from '@angular/router';
-
-
-@Component({
+import { AuthenticationService } from './../autentification/_services';
+import { User } from './../autentification/_models';
+import {ProductsService} from './../services/products.service';
+ @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
@@ -15,9 +16,12 @@ export class MenuComponent {
   today: number = Date.now();
   Date = Date.now();
   constructor(
+    private authenticationService: AuthenticationService,
     private productService: ProductsService,
     private router: Router
-    ){}
+    ){
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
     
   mecaniciens: string;
 
@@ -30,6 +34,15 @@ Matricule=1000;
     console.log(response);
    });
   }
+  
+
+    
+currentUser: User;
+
+logout() {
+  this.authenticationService.logout();
+  this.router.navigate(['/login']);
+}
 
 
 }

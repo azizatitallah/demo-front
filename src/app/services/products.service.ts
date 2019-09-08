@@ -1,3 +1,4 @@
+import { Interventions } from './../update-intervention/update-intervention.component';
 import { SortieComponent, employee} from './../sortie/sortie.component';
 import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
@@ -30,11 +31,19 @@ export class ProductsService {
     return this.http.get(`${this.ipAddress}/intervention/${Matricule}`);
   }
 
+  getInterventionTypeMachine(){
+    return this.http.get(`${this.ipAddress}/intervention/interventionTypeMachine`);
+  }
+
+  getInterventionAttente(){
+    return this.http.get(`${this.ipAddress}/intervention/interventionAttente`);
+  }
+
   getOperateurPresent() {
     return this.http.get(`${this.ipAddress}/operateur/operateurPresent`);
   }
 
-  getInterventionCategorie(){
+  getInterventionCategorie() {
     return this.http.get(`${this.ipAddress}/intervention/interventionCategorie`);
   }
 
@@ -45,7 +54,9 @@ export class ProductsService {
   getMecanicien() {
     return this.http.get(`${this.ipAddress}/intervention/mecano`);
   }
-
+  getInterventionMachineCategorie(){
+    return this.http.get(`${this.ipAddress}/intervention/interventionCategorieMachine`);
+  }
 
   postIntervention (intervention): Observable<Intervention> {
     return this.http.post<Intervention>(`${this.ipAddress}/intervention/create`, JSON.stringify(intervention), this.httpOptions)
@@ -104,14 +115,15 @@ export class ProductsService {
         catchError(this.errorHandler)
       );
   }
+  UpdateIntervention(ID): Observable<Interventions> {
+    return this.http.put<Interventions>(`${this.ipAddress}/intervention/update/${ID}`, JSON.stringify(ID));
+  }
 
   updatePresence(Matricule): Observable<employee> {
     return this.http.put<employee>(`${this.ipAddress}/operateur/${Matricule}`, JSON.stringify(Matricule));
-    
   }
   updateEffectue(Matricule, Code_Operation): Observable<any> {
     return this.http.put<any>(`${this.ipAddress}/effectue/${Matricule}/${Code_Operation}`, JSON.stringify(Code_Operation));
-    
   }
 
   getOperation() {
