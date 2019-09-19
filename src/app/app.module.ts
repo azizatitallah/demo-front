@@ -27,10 +27,8 @@ import { AffectationComponent } from './affectation/affectation.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { PresenceComponent } from './presence/presence.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { SortieComponent } from './sortie/sortie.component';
 import { ChartsComponent } from './charts/charts.component';
 import { ChartTypeMachineComponent } from './chart-type-machine/chart-type-machine.component';
-import { ChartTypeMachineCategorieComponent } from './chart-type-machine-categorie/chart-type-machine-categorie.component';
 import { ChartAtenteVSInterventionComponent } from './chart-atente-vsintervention/chart-atente-vsintervention.component';
 import { UpdateInterventionComponent } from './update-intervention/update-intervention.component';
 import {MatCardModule} from '@angular/material/card';
@@ -44,11 +42,22 @@ import { RegisterComponent } from './autentification/register';
 import { AutentifierComponent } from './autentification/autentifier/autentifier.component';
 import { ChartRendementComponent } from './chart-rendement/chart-rendement.component';
 import { ProductsService } from './services/products.service';
+import { ListePresenceComponent } from './liste-presence/liste-presence.component';
+import { SuiviInterventionComponent } from './suivi-intervention/suivi-intervention.component';
+import { ListeSortantComponent } from './liste-sortant/liste-sortant.component';
  
 const appRoutes: Routes = [
   {
+    path: 'sortie',
+    component: ListeSortantComponent 
+  },
+  {
     path: 'Operation',
     component: OperationsComponent 
+  },
+  {
+    path: 'a',
+    component: SuiviInterventionComponent 
   },
   {
     path: 'home',
@@ -58,22 +67,16 @@ const appRoutes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  {
-    path: 'interventions VS temps attente',
-    component: ChartAtenteVSInterventionComponent
-  },
-  {
-    path: 'interventions en fonction du typeMachine',
-    component: ChartTypeMachineComponent
-  },
-  {
-    path: 'interventions en fonction de categorie',
-    component: ChartsComponent
-  },
+ 
   {
     path: 'interventions',
     component: ProductsViewComponent
   },
+  {
+    path: 'listepresence',
+    component: ListePresenceComponent
+  },
+  
   {
     path: 'update',
     component: UpdateInterventionComponent
@@ -87,17 +90,14 @@ const appRoutes: Routes = [
     path: 'Presences',
     component: PresenceComponent
   },
-  {
-    path: 'Sortie',
-    component: SortieComponent
-  },
+
   
   { path: 'login', component: LoginComponent }, 
 ];
 
 @NgModule({
   declarations: [
-
+   
     AppComponent,
     ProductsViewComponent,
     MenuComponent,
@@ -105,12 +105,12 @@ const appRoutes: Routes = [
     LoginComponent,
     PresenceComponent,
     OperationsComponent,
-    SortieComponent,
     ChartsComponent,
     ChartTypeMachineComponent,
-    ChartTypeMachineCategorieComponent,
     ChartAtenteVSInterventionComponent,
-    UpdateInterventionComponent,  AlertComponent, HomeComponent, RegisterComponent, AutentifierComponent, ChartRendementComponent,
+    UpdateInterventionComponent,  AlertComponent, HomeComponent, RegisterComponent, 
+    AutentifierComponent, ChartRendementComponent, ListePresenceComponent, 
+    SuiviInterventionComponent, ListeSortantComponent,
   ],
   imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule, MatGridListModule,
     RouterModule.forRoot(appRoutes), MatRadioModule,

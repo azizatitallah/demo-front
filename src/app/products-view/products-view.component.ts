@@ -32,7 +32,7 @@ export class ProductsViewComponent implements OnInit {
    categories: {};
   profileForm: FormGroup;
   displayedColumns: string[] = [
-    'ID', 'mecanicien', 'Date',
+    'ID', 'mecanicien', 
    'NumMachine', 'Reclamation', 'Debut',
     'Fin', 'Categorie', 'chaine', 'TypeMachine', 'Etat_Intervention', 'Update'
   ];

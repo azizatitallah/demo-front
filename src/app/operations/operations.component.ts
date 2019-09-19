@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./operations.component.css']
 })
 export class OperationsComponent implements OnInit {
-
+  today: number = Date.now();
+  Date = Date.now();
   operations: {};
   Matricule = 0;
 

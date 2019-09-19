@@ -1,8 +1,43 @@
 
-<mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile *ngFor="let operation of operations">
-        <button mat-raised-button color="primary" type="button" (click)="updateEffectue(Matricule, operation.Code_Operation)">
-            {{ operation.Designation }}
-        </button>
-    </mat-grid-tile>
-</mat-grid-list>
+
+
+
+<mat-sidenav-container class="example-container"  >
+    
+      
+        <mat-sidenav-content  class="example-container" >
+      
+            <div id="Sidenav" class="sidenav1">
+          <mat-toolbar >
+               <span class="spacer"></span>
+            <a class="nav-item nav-link" routerLink="/">SIMOTEX</a>
+            <span class="spacer"></span>
+            <a>  <mat-icon > date_range</mat-icon> {{ today | date:'fullDate'}} </a>
+            <span class="spacer"></span>
+            <a>  <mat-icon > query_builder</mat-icon> {{ today | date:'h:mm a '}} </a>
+            <span class="spacer"></span>
+            
+            <a  routerLink="/login">Imen Ouchtati <mat-icon > account_circle</mat-icon> </a>
+            <span class="spacer"></span>
+             
+            <a  (click)="logout()"> <mat-icon > settings_power</mat-icon></a>
+           
+        
+          </mat-toolbar>
+          <div class="content">
+            <alert></alert>
+            <router-outlet></router-outlet>
+          </div>
+          <mat-grid-list cols="4" rowHeight="100px">
+                <mat-grid-tile *ngFor="let operation of operations">
+                    <button mat-raised-button color="primary" type="button" (click)="updateEffectue(Matricule, operation.Code_Operation)">
+                        {{ operation.Designation }}
+                    </button>
+                </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+      
+      

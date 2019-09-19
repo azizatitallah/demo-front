@@ -88,11 +88,6 @@ export class UpdateInterventionComponent implements OnInit {
          data => this.mecaniciens = data,
             );
  }
- UpdateIntervention(ID){
-    this.productService.UpdateIntervention(ID).subscribe( (response) => {
-      console.log(response);
-    });
-  }
 
  submitForm() {
    console.log(this.profileForm.value);

@@ -1,5 +1,5 @@
 import { Interventions } from './../update-intervention/update-intervention.component';
-import { SortieComponent, employee} from './../sortie/sortie.component';
+
 import { Affectation } from './../affectation/affectation.component';
 import { Intervention } from './../products-view/products-view.component';
 import { Injectable } from '@angular/core';
@@ -97,7 +97,7 @@ export class ProductsService {
   }
 
   getAffectation() {
-    return this.http.get(`${this.ipAddress}/operation/all`);
+    return this.http.get(`${this.ipAddress}/effectue/all`);
   }
 
   postAffectation(effectue): Observable<any> {
@@ -115,13 +115,11 @@ export class ProductsService {
         catchError(this.errorHandler)
       );
   }
-  UpdateIntervention(ID): Observable<Interventions> {
-    return this.http.put<Interventions>(`${this.ipAddress}/intervention/update/${ID}`, JSON.stringify(ID));
+  UpdateIntervention(Interventions): Observable<Interventions> {
+    return this.http.put<Interventions>(`${this.ipAddress}/intervention/update`, JSON.stringify(Interventions), this.httpOptions);
   }
 
-  updatePresence(Matricule): Observable<employee> {
-    return this.http.put<employee>(`${this.ipAddress}/operateur/${Matricule}`, JSON.stringify(Matricule));
-  }
+  
   updateEffectue(Matricule, Code_Operation): Observable<any> {
     return this.http.put<any>(`${this.ipAddress}/effectue/${Matricule}/${Code_Operation}`, JSON.stringify(Code_Operation));
   }
@@ -133,4 +131,10 @@ export class ProductsService {
   getOperateur() {
     return this.http.get(`${this.ipAddress}/operation/alloperateur`);
   }
+
+  getRendement() {
+    return this.http.get(`${this.ipAddress}/effectue/Rendement`);
+  }
+
+
 }

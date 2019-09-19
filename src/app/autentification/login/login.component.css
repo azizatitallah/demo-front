@@ -1,0 +1,18 @@
+#texte p {
+    color: rgb(55, 29, 124); /* White text color */
+    display: flex;
+    align-content: center;
+    padding: 0.8vh 0.2vw;
+    font-style: inherit;
+    font-size: 200%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30%;
+    right: 25%;
+}
+
+#texte form{
+  
+    margin-top: 10%
+}
