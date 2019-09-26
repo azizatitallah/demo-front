@@ -1,6 +1,5 @@
 import { AlertComponent } from './autentification/_components/alert.component';
 import { OperationsComponent } from './operations/operations.component';
-
 import {HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -97,8 +96,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-   
-    AppComponent,
+       AppComponent,
     ProductsViewComponent,
     MenuComponent,
     AffectationComponent,
@@ -112,8 +110,12 @@ const appRoutes: Routes = [
     AutentifierComponent, ChartRendementComponent, ListePresenceComponent, 
     SuiviInterventionComponent, ListeSortantComponent,
   ],
-  imports: [MatSidenavModule, MatChipsModule, MatToolbarModule, MatCheckboxModule, MatSelectModule, MatGridListModule,
-    RouterModule.forRoot(appRoutes), MatRadioModule,
+  imports: [MatSidenavModule, 
+    MatChipsModule, MatToolbarModule,
+     MatCheckboxModule, MatSelectModule,
+      MatGridListModule,
+    RouterModule.forRoot(appRoutes), 
+    MatRadioModule,
     HttpModule, MatCardModule,
     FormsModule,
     ReactiveFormsModule,
