@@ -115,8 +115,14 @@ export class ProductsService {
         catchError(this.errorHandler)
       );
   }
+<<<<<<< HEAD
   UpdateIntervention(Interventions): Observable<Interventions> {
     return this.http.put<Interventions>(`${this.ipAddress}/intervention/update`, JSON.stringify(Interventions), this.httpOptions);
+=======
+
+  updatePresence(Matricule): Observable<employee> {
+    return this.http.put<employee>(`${this.ipAddress}/operateur/${Matricule}`, JSON.stringify(Matricule));
+>>>>>>> 81d57bb32b184558e804248d76e31f166d4a0b3c
   }
 
   
